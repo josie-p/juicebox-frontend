@@ -8,18 +8,17 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
   const [password, setPassword] = useState("");
   const logInUser = async (userName, password) => {
     const response = await logInAPI(userName, password);
-    // console.log(response, "repsonse");
-    setToken("a token");
-    if(response.token){
+
+    if (response.token) {
       console.log("hello", response.token);
       localStorage.setItem("token", response.token);
-      // setToken(response.token);
-      
+      setToken(response.token);
+
       setLoggedIn(true);
     }
   };
-  
-  console.log(token, 'token from function')
+
+  console.log(token, "token from function");
   return (
     <div>
       <form
@@ -44,7 +43,7 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
         ></input>
         <button type="submit">Log In</button>
       </form>
-      <Link to="/register" >
+      <Link to="/register">
         <p>
           If you need an account register here, no email required! Or Login in
           to our test account username: albert pw: bertie99{" "}

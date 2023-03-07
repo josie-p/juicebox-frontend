@@ -4,7 +4,7 @@ import { Navbar } from "./";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [token, setToken] = useState("Token Vlaue");
+  const [token, setToken] = useState("");
   return (
     <div id="main">
       <Navbar />

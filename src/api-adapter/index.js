@@ -63,3 +63,37 @@ export const getPostsAPI = async (token) => {
     console.error(error);
   }
 };
+
+export const editPostAPI = async (token, id, title, content, tags) => {
+  try{
+    const response = await fetch(`${BASE_URL}/posts/${id}`, {
+      method: "PATCH",
+      headers:makeHeaders(token),
+      body: JSON.stringify({
+        title: title,
+        content: content,
+        tags: tags
+      }),
+    });
+
+    const result = await response.json();
+    return result;
+  }catch(error){
+    console.error(error)
+  }
+}
+
+export const deletePostAPI = async (token, id) => {
+  try{
+ const response = await fetch(`${BASE_URL}/posts/${id}`,{
+  method: "DELETE",
+  headers: makeHeaders(token),
+ });
+
+ const result = await response.json();
+
+ return result;
+  }catch(error){
+    console.error(error)
+  }
+}

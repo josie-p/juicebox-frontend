@@ -10,6 +10,8 @@ const PostCard = ({ post }) => {
         return <p key={`Tag Map: ${idx}`}>{tag.name}</p>;
       })}
       <Link to={`/posts/${post.id}`}>See Single Post</Link>
+      <button>edit</button>
+      <button>delete</button>
       
     </div>
   );

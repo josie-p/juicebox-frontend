@@ -5,3 +5,4 @@ export { default as HomePage } from "./HomePage";
 export { default as Register } from "./Register";
 export { default as PostList } from "./PostList";
 export { default as PostCard } from "./PostCard";
+export {default as SinglePost} from "./SinglePost";

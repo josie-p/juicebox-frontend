@@ -1,16 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useOutletContext } from "react-router-dom";
 import { LogIn, PostList } from "./index";
 
 const HomePage = () => {
   const [loggedIn, setLoggedIn, token, setToken] = useOutletContext();
   console.log(token, "token");
-  if (localStorage.getItem("token")) {
-    setLoggedIn(true);
-    setToken(localStorage.getItem("token"));
-  } else {
-    setLoggedIn(false);
-  }
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setLoggedIn(true);
+      setToken(localStorage.getItem("token"));
+    } else {
+      setLoggedIn(false);
+    }
+  }, [])
+ 
   return (
     <div>
       <h1>Home Page</h1>

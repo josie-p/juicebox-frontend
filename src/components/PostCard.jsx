@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PostCard = ({ post }) => {
   return (
@@ -8,6 +9,8 @@ const PostCard = ({ post }) => {
       {post.tags.map((tag, idx) => {
         return <p key={`Tag Map: ${idx}`}>{tag.name}</p>;
       })}
+      <Link to={`/posts/${post.id}`}>See Single Post</Link>
+      
     </div>
   );
 };

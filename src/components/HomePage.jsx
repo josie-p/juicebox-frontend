@@ -4,7 +4,7 @@ import { LogIn } from "./index";
 
 const HomePage = () => {
   const [loggedIn, setLoggedIn, token, setToken] = useOutletContext();
-  console.log(loggedIn, "loggedIn");
+  // console.log(setToken, "loggedIn");
   return (
     <div>
       <h1>Home Page</h1>

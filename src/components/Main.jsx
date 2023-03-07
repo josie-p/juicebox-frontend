@@ -1,10 +1,10 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { Navbar } from "./";
 
 const Main = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState("Token Vlaue");
   return (
     <div id="main">
       <Navbar />

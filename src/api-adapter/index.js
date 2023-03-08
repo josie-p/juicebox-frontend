@@ -98,3 +98,23 @@ export const deletePostAPI = async (token, id) => {
     console.error(error)
   }
 }
+
+export const createPostAPI = async (token, title, content, tags) => {
+  try{
+    const response = await fetch(`${BASE_URL}/posts`, {
+      method:"POST", 
+      headers: makeHeaders(token),
+      body: JSON.stringify({
+        title: title, 
+        content: content,
+        tags: tags
+      })
+    });
+
+    const result = await response.json();
+
+    return result;
+  }catch(error){
+    console.error(error)
+  }
+}

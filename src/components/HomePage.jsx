@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { LogIn, PostList } from "./index";
 
@@ -12,8 +12,8 @@ const HomePage = () => {
     } else {
       setLoggedIn(false);
     }
-  }, [])
- 
+  }, []);
+
   return (
     <div>
       <h1>Home Page</h1>

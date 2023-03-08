@@ -20,17 +20,21 @@ const PostList = ({ token }) => {
   return (
     <div>
       <div>
-        {posts.map((post, idx) => {
-          return (
-            <PostCard
-              key={`PostCard Key: ${idx}`}
-              post={post}
-              token={token}
-              posts={posts}
-              setPosts={setPosts}
-            />
-          );
-        })}
+        {posts.length ? (
+          posts.map((post, idx) => {
+            return (
+              <PostCard
+                key={`PostCard Key: ${idx}`}
+                post={post}
+                token={token}
+                posts={posts}
+                setPosts={setPosts}
+              />
+            );
+          })
+        ) : (
+          <h1>LOADING...</h1>
+        )}
       </div>
     </div>
   );

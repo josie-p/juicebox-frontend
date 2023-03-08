@@ -13,7 +13,9 @@ const PostCard = ({ post, token, posts, setPosts }) => {
         return <p key={`Tag Map: ${idx}`}>{tag.name}</p>;
       })}
       <Link to={`/posts/${post.id}`}>See Single Post</Link>
-      <button>edit</button>
+      <Link to={`/post/edit/${post.id}`}>
+        <button>edit</button>
+      </Link>
       <button
         onClick={async () => {
           const deletedPost = await deletePostAPI(token, post.id);

@@ -7,7 +7,7 @@ const Main = () => {
   const [token, setToken] = useState("");
   return (
     <div id="main">
-      <Navbar />
+      <Navbar setLoggedIn={setLoggedIn} />
       <Outlet context={[loggedIn, setLoggedIn, token, setToken]} />
     </div>
   );

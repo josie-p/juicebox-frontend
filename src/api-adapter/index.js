@@ -1,7 +1,7 @@
 const BASE_URL = "https://ap-jp-juicebox.onrender.com/api";
 
 function makeHeaders(token) {
-    console.log(`Bearer ${token}`)
+    
   return {
     "Content-Type": "application/json",
     "Authorization": `Bearer ${token}`,
@@ -91,6 +91,7 @@ export const deletePostAPI = async (token, id) => {
  });
 
  const result = await response.json();
+ return result;
 
  return result;
   }catch(error){

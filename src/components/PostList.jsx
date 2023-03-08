@@ -19,7 +19,15 @@ const PostList = ({ token }) => {
     <div>
       <div>
         {posts.map((post, idx) => {
-          return <PostCard key={`PostCard Key: ${idx}`} post={post} />;
+          return (
+            <PostCard
+              key={`PostCard Key: ${idx}`}
+              post={post}
+              token={token}
+              posts={posts}
+              setPosts={setPosts}
+            />
+          );
         })}
       </div>
     </div>

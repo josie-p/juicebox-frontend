@@ -118,3 +118,33 @@ export const createPostAPI = async (token, title, content, tags) => {
     console.error(error)
   }
 }
+
+export const getAllTagsAPI = async () => {
+  try{
+    const response = await fetch(`${BASE_URL}/tags`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const result = await response.json();
+    return result;
+  }catch(error){
+    console.error(error)
+  }
+}
+
+export const getPostsByTagAPI = async (token, tagName) => {
+  try{
+const response = await fetch(`${BASE_URL}/%23${tagName}/posts`, {
+  method: "GET",
+  headers: makeHeaders(token),
+});
+
+const result = await response.json();
+return result;
+  }catch(error){
+    console.error(error)
+  }
+}

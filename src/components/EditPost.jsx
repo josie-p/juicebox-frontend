@@ -50,7 +50,7 @@ const EditPost = () => {
   return currentPost ? (
     <div>
       <h1>Editing {currentPost.title}</h1>
-      <form
+      <form id="editForm"
         onSubmit={(e) => {
           e.preventDefault();
           editPost(token, id, title, content, tags);

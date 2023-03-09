@@ -8,77 +8,81 @@ const PostList = ({ token }) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filtered, setFiltered] = useState([...posts]);
-  
 
-useEffect(() => {
-  setFiltered(posts.filter((post, idx) => {
+  useEffect(() => {
+    setFiltered(
+      posts.filter((post, idx) => {
+        let tagString = "";
 
-    let tagString = "";
+        post.tags.map((tag) => {
+          tagString = tagString + " " + tag.name;
+        });
 
-    post.tags.map((tag) => {
-      tagString = tagString + " " + tag.name;
-    })
-
-    if(tagString.includes(searchTerm)){
-      return true;
-    }
-  }))
-
-}, [searchTerm])
-
+        if (tagString.includes(searchTerm)) {
+          return true;
+        }
+      })
+    );
+  }, [searchTerm]);
 
   return (
-    <div>
-      <form onSubmit={
-        (e) => {
+    <div id="main-postlist-div">
+      <form
+        id="searchbar"
+        onSubmit={(e) => {
           e.preventDefault();
-        }
-      }>
-        <label>search for tags</label>
-        <input type="text" onInput={ (e) => {
+        }}
+      >
+        <label>Search for Tags</label>
+        <input
+          type="text"
+          onInput={(e) => {
             setSearchTerm(e.target.value);
-        }
-        } id="searchBar"></input>
+          }}
+          id="searchBar"
+        ></input>
         <button type="submit">search</button>
-        <button onClick={
-          () => {
+        <button
+          onClick={() => {
             setSearchTerm("");
             document.getElementById("searchBar").value = "";
-          }
-        }>clear search</button>
+          }}
+        >
+          clear search
+        </button>
       </form>
       <div>
-
-        {
-          posts.length ? 
-          searchTerm.length ? 
-          filtered.map((post, idx) => {
-            return (
-              <PostCard
-                key={`PostCard Key: ${idx}`}
-                post={post}
-                token={token}
-                posts={posts}
-                setPosts={setPosts}
-                setSearchTerm={setSearchTerm}
-              />
-            );
-          }) : 
-          posts.map((post, idx) => {
-            return (
-              <PostCard
-                key={`PostCard Key: ${idx}`}
-                post={post}
-                token={token}
-                posts={posts}
-                setPosts={setPosts}
-                setSearchTerm={setSearchTerm}
-              />
-            );
-          }) :
+        {posts.length ? (
+          searchTerm.length ? (
+            filtered.map((post, idx) => {
+              return (
+                <PostCard
+                  key={`PostCard Key: ${idx}`}
+                  post={post}
+                  token={token}
+                  posts={posts}
+                  setPosts={setPosts}
+                  setSearchTerm={setSearchTerm}
+                />
+              );
+            })
+          ) : (
+            posts.map((post, idx) => {
+              return (
+                <PostCard
+                  key={`PostCard Key: ${idx}`}
+                  post={post}
+                  token={token}
+                  posts={posts}
+                  setPosts={setPosts}
+                  setSearchTerm={setSearchTerm}
+                />
+              );
+            })
+          )
+        ) : (
           <h1>LOADING...</h1>
-        }
-
+        )}
       </div>
     </div>
   );

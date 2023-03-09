@@ -5,18 +5,22 @@ import { deletePostAPI } from "../api-adapter";
 const PostCard = ({ post, token, posts, setPosts, setSearchTerm }) => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div class="post-card-div">
       <h3>{post.title}</h3>
       {!post.active ? <h4>This post is not active</h4> : null}
       <p>{post.content}</p>
       {post.tags.map((tag, idx) => {
-        return <p key={`Tag Map: ${idx}`} onClick={
-          () => {
-            document.getElementById("searchBar").value = tag.name;
-            setSearchTerm(tag.name);
-
-          }
-        }>{tag.name}</p>;
+        return (
+          <p
+            key={`Tag Map: ${idx}`}
+            onClick={() => {
+              document.getElementById("searchBar").value = tag.name;
+              setSearchTerm(tag.name);
+            }}
+          >
+            {tag.name}
+          </p>
+        );
       })}
       <Link to={`/posts/${post.id}`}>See Single Post</Link>
       <Link to={`/post/edit/${post.id}`}>

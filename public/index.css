@@ -1,13 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Tilt+Neon&display=swap");
+
 body {
-    margin: 0;
+  margin: 0;
+  font-family: "Tilt Neon", cursive;
+  background-color: #efa48b;
 }
 
 #navbar {
-    background-color: black;
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-height: 10%;
-    min-height: 40px;
+  background-color: #0c0f0a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  max-height: 10%;
+  min-height: 40px;
+}
+
+#navbar h1 {
+  font-family: "Climate Crisis", cursive;
+  color: #b9e28c;
+  letter-spacing: 0.2vw;
+  padding-left: 1vw;
+  text-shadow: 5px 5px 3px #072ac8;
+}
+
+#navbar a {
+  color: #6bbaec;
+  text-decoration: none;
+}
+#navbar h2 {
+  color: #6bbaec;
+  text-decoration: none;
+}
+
+#nav-bar-links {
+  display: flex;
+  margin-right: 1vw;
+}
+
+#nav-bar-links h2 {
+  margin: 1vw;
+}
+
+#main-postlist-div {
+  margin: 2vh auto 2vh auto;
+  width: 80%;
+}
+
+#searchbar input,
+#searchbar button,
+#searchbar label {
+  margin: 0.3vw;
+  border-radius: 35px;
+}
+
+#searchbar input {
+  padding: 1.5vh 1.5vw;
+  font-size: larger;
+  font-family: "Tilt Neon", cursive;
+}
+
+#searchbar label {
+  font-size: larger;
+  font-weight: bold;
+  color: #072ac8;
+  background-color: #c9e6f8;
+  padding: 1.5vh 1.5vw;
+  border: 5px dashed black;
+}
+
+#searchbar button {
+  background-color: #c9e6f8;
+  font-weight: bolder;
+  color: #072ac8;
+  padding: 1.5vh 1.5vw;
+  font-size: larger;
+  transition: ease-in;
+  transition-duration: 0.2s;
+}
+
+#searchbar button:hover {
+  box-shadow: 5px 5px #b9e28c;
+  transition: ease-in;
+  transition-duration: 0.2s;
+}
+
+button {
+  padding: 0.5vh 0.5vw;
+  background-color: transparent;
+  margin: 0.3vw;
+  border-radius: 35px;
+}
+
+.post-card-div {
+  border: 2px solid #072ac8;
+  margin: 2vh auto 0 auto;
+  border-radius: 35px;
+  padding: 2vh 2vw;
+  box-shadow: 5px 5px 5px #072ac8;
+  background-color: #6bbaec;
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
+
+.post-card-div:hover {
+  border: 2px solid #b9e28c;
+  box-shadow: 5px 5px 5px #b9e28c;
+  transition: ease-in;
+  transition-duration: 0.3s;
 }

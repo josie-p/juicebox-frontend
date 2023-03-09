@@ -16,12 +16,10 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
       {loggedIn ? (
-        <>
-          <h1>Posts</h1>
+        <div>
           <PostList token={token} />
-        </>
+        </div>
       ) : (
         <LogIn
           setToken={setToken}

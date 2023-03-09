@@ -7,18 +7,8 @@ const PostList = ({ token }) => {
   const [, , , , posts, setPosts] = useOutletContext();
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [tagArr, setTagArr] = useState([]);
   const [filtered, setFiltered] = useState([...posts]);
   
-
-const getTags = async () => {
-  const response = await getAllTagsAPI();
-  setTagArr(response.tags[0]);
-}
-
-useEffect(() => {
-  getTags();
-}, []);
 
 useEffect(() => {
   setFiltered(posts.filter((post, idx) => {
@@ -29,8 +19,6 @@ useEffect(() => {
       tagString = tagString + " " + tag.name;
     })
 
-    console.log(tagString, 'string of tags');
-
     if(tagString.includes(searchTerm)){
       return true;
     }
@@ -38,8 +26,6 @@ useEffect(() => {
 
 }, [searchTerm])
 
-console.log(posts, 'posts');
-console.log(filtered, 'filtered posts');
 
   return (
     <div>
@@ -51,10 +37,15 @@ console.log(filtered, 'filtered posts');
         <label>search for tags</label>
         <input type="text" onInput={ (e) => {
             setSearchTerm(e.target.value);
-            console.log(searchTerm);
         }
-        }></input>
+        } id="searchBar"></input>
         <button type="submit">search</button>
+        <button onClick={
+          () => {
+            setSearchTerm("");
+            document.getElementById("searchBar").value = "";
+          }
+        }>clear search</button>
       </form>
       <div>
 
@@ -69,6 +60,7 @@ console.log(filtered, 'filtered posts');
                 token={token}
                 posts={posts}
                 setPosts={setPosts}
+                setSearchTerm={setSearchTerm}
               />
             );
           }) : 
@@ -80,6 +72,7 @@ console.log(filtered, 'filtered posts');
                 token={token}
                 posts={posts}
                 setPosts={setPosts}
+                setSearchTerm={setSearchTerm}
               />
             );
           }) :

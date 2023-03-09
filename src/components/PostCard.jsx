@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePostAPI } from "../api-adapter";
 
-const PostCard = ({ post, token, posts, setPosts }) => {
+const PostCard = ({ post, token, posts, setPosts, setSearchTerm }) => {
   const navigate = useNavigate();
   return (
     <div>
@@ -10,7 +10,13 @@ const PostCard = ({ post, token, posts, setPosts }) => {
       {!post.active ? <h4>This post is not active</h4> : null}
       <p>{post.content}</p>
       {post.tags.map((tag, idx) => {
-        return <p key={`Tag Map: ${idx}`}>{tag.name}</p>;
+        return <p key={`Tag Map: ${idx}`} onClick={
+          () => {
+            document.getElementById("searchBar").value = tag.name;
+            setSearchTerm(tag.name);
+
+          }
+        }>{tag.name}</p>;
       })}
       <Link to={`/posts/${post.id}`}>See Single Post</Link>
       <Link to={`/post/edit/${post.id}`}>

@@ -12,11 +12,12 @@ const Register = () => {
 
   const register = async (userName, password, name, location) => {
     const response = await registerAPI(userName, password, name, location);
-    console.log(response, "response fore register");
     if (response.token) {
       setToken(response.token);
       localStorage.setItem("token", token);
       setLoggedIn(true);
+    }else{
+      alert("Hmmm... Something went wrong- try again!");
     }
   };
 

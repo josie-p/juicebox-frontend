@@ -10,11 +10,11 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
     const response = await logInAPI(userName, password);
 
     if (response.token) {
-      console.log("hello", response.token);
       localStorage.setItem("token", response.token);
       setToken(response.token);
-
       setLoggedIn(true);
+    }else{
+      alert("You have entered the wrong username and/or password")
     }
   };
 

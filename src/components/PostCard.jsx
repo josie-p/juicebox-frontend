@@ -14,7 +14,7 @@ const PostCard = ({ post, token, posts, setPosts, setSearchTerm }) => {
           if (tag.name.includes("#")) {
             return (
               <p
-                class="post-card-tag"
+                className="post-card-tag"
                 key={`Tag Map: ${idx}`}
                 onClick={() => {
                   document.getElementById("searchBar").value = tag.name;

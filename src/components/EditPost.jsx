@@ -6,6 +6,7 @@ import {
   Link,
 } from "react-router-dom";
 import { editPostAPI } from "../api-adapter";
+import Loading from "./Loading";
 
 const EditPost = () => {
   const [loggedIn, setLoggedIn, token, setToken, posts, setPosts] =
@@ -102,7 +103,7 @@ const EditPost = () => {
       </Link>
     </div>
   ) : (
-    <h1>Loading</h1>
+    <Loading/>
   );
 };
 

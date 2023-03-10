@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext, useParams, Link } from "react-router-dom";
 import { getPostsAPI } from "../api-adapter";
+import { Loading } from "./";
 
 const SinglePost = () => {
   const [, , token, setToken] = useOutletContext();
@@ -69,7 +70,7 @@ const SinglePost = () => {
           </div>
         </div>
       ) : (
-        <h1>Loading</h1>
+        <Loading/>
       )}
     </>
   );

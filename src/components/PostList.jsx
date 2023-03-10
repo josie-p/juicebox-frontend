@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { PostCard } from "./";
+import { PostCard, Loading } from "./";
 import { getPostsAPI, getAllTagsAPI } from "../api-adapter";
 import { useOutletContext } from "react-router-dom";
+
 
 const PostList = ({ token }) => {
   const [, , , , posts, setPosts] = useOutletContext();
@@ -81,7 +82,7 @@ const PostList = ({ token }) => {
             })
           )
         ) : (
-          <h1>LOADING...</h1>
+          <Loading/>
         )}
       </div>
     </div>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Tilt+Neon&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 
 body {
   margin: 0;
@@ -362,6 +363,37 @@ flex-wrap: wrap;
   color: #072ac8;
   text-shadow: 5px 5px 5px #6bbaec;
 }
+
+.loading-page{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  background-color: #b9e28c;
+  border-radius: 35px;
+}
+
+#hold-loading{
+  max-width: fit-content;
+  margin: auto;
+  text-align: center;
+  font-family: "Climate Crisis", sans-serif;
+  letter-spacing: 2px;
+  color: #072ac8;
+  text-shadow: 4px 4px 4px #6bbaec;
+}
+
+#hold-loading h1{
+  animation: bounce;
+  animation-duration: 0.7s;
+  animation-iteration-count: 5;
+}
+
+#hold-loading img{
+  border-radius: 35px;
+}
+
 /* media queries */
 @media screen and (min-width: 1025px) {
   #homeHold {

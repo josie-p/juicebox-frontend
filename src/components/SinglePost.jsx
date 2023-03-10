@@ -42,35 +42,37 @@ const SinglePost = () => {
 
   return (
     <>
-      <Link to="/" className="goHome">
-        Go Home
-      </Link>
       {posts.length ? (
-        <div className="single-post">
-          <h2 id="title">{singlePost[0].title}</h2>
-          <h1 id="user"> by: {singlePost[0].author.username}</h1>
-          <p id="content">{singlePost[0].content}</p>
-          <p>tags:</p>
-          <div id="holdTags">
-            {singlePost[0].tags.map((tag, idx) => {
-              if (tag.name.includes("#")) {
-                return (
-                  <p key={`Tag Map Single Post: ${idx}`} className="tags">
-                    {tag.name}
-                  </p>
-                );
-              } else {
-                return (
-                  <p key={`Tag Map Single Post: ${idx}`} className="tags">
-                    #{tag.name}
-                  </p>
-                );
-              }
-            })}
+        <>
+          <div className="single-post">
+            <h2 id="title">{singlePost[0].title}</h2>
+            <h1 id="user"> by: {singlePost[0].author.username}</h1>
+            <p id="content">{singlePost[0].content}</p>
+            <p>tags:</p>
+            <div id="holdTags">
+              {singlePost[0].tags.map((tag, idx) => {
+                if (tag.name.includes("#")) {
+                  return (
+                    <p key={`Tag Map Single Post: ${idx}`} className="tags">
+                      {tag.name}
+                    </p>
+                  );
+                } else {
+                  return (
+                    <p key={`Tag Map Single Post: ${idx}`} className="tags">
+                      #{tag.name}
+                    </p>
+                  );
+                }
+              })}
+            </div>
           </div>
-        </div>
+          <Link to="/" className="goHome">
+            Go Home
+          </Link>
+        </>
       ) : (
-        <Loading/>
+        <Loading />
       )}
     </>
   );

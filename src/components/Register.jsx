@@ -16,7 +16,7 @@ const Register = () => {
       setToken(response.token);
       localStorage.setItem("token", token);
       setLoggedIn(true);
-    }else{
+    } else {
       alert("Hmmm... Something went wrong- try again!");
     }
   };
@@ -26,7 +26,7 @@ const Register = () => {
       {loggedIn ? (
         <HomePage />
       ) : (
-        <div>
+        <div id="register-div">
           <h2 className="register-account-h2">Register an Account</h2>
           <form
             className="editForm"

@@ -7,9 +7,9 @@ const PostCard = ({ post, token, posts, setPosts, setSearchTerm }) => {
   return (
     <div id="homeHold">
       <div className="post-card-div">
-        <h3>{post.title}</h3>
+        <h3 className="post-card-title">{post.title}</h3>
         {!post.active ? <h4>This post is not active</h4> : null}
-        <p>{post.content}</p>
+        <p className="post-card-content">{post.content}</p>
         {post.tags.map((tag, idx) => {
           if (tag.name.includes("#")) {
             return (
@@ -47,7 +47,7 @@ const PostCard = ({ post, token, posts, setPosts, setSearchTerm }) => {
           className="deleteButton"
           onClick={async () => {
             const deletedPost = await deletePostAPI(token, post.id);
-            if (deletedPost.name.includes("Unauthorized")) {
+            if (deletedPost.name?.includes("Unauthorized")) {
               alert("You Cant Delete a post that isnt yours");
             }
             window.location.reload(false);

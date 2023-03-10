@@ -61,6 +61,7 @@ a {
 #searchbar label {
   margin: 0.3vw;
   border-radius: 35px;
+  font-family: "Tilt Neon", sans-serif;
 }
 
 #searchbar input {
@@ -73,10 +74,10 @@ a {
 #searchbar label {
   font-size: larger;
   font-weight: bold;
-  color: #072ac8;
-  background-color: #c9e6f8;
+  color: #c9e6f8;
+  background-color: #072ac8;
   padding: 1.5vh 1.5vw;
-  border: 5px dashed black;
+  border: 5px dashed #c9e6f8;
 }
 
 #searchbar button {
@@ -88,10 +89,13 @@ a {
   transition: ease-in;
   transition-duration: 0.2s;
   border: 5px dashed #0c0f0a;
+  box-shadow: 4px 4px 4px #072ac8;
 }
 
 #searchbar button:hover {
   box-shadow: 5px 5px #b9e28c;
+  background-color: #6bbaec;
+  border-color: #072ac8;
   transition: ease-in;
   transition-duration: 0.2s;
 }
@@ -115,11 +119,44 @@ button {
   color: #072ac8;
 }
 
+.post-card-div a,
+.post-card-div button {
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
+
+.post-card-div a:hover,
+.post-card-div button:hover {
+  transition: ease-in;
+  transition-duration: 0.3s;
+
+  background-color: #072ac8;
+  color: #efa48b;
+  box-shadow: 2px 2px 2px #b9e28c;
+}
+
 .post-card-div:hover {
   border: 2px solid #b9e28c;
   box-shadow: 5px 5px 5px #b9e28c;
   transition: ease-in;
   transition-duration: 0.3s;
+}
+
+.post-card-content {
+  background-color: #c9e6f8;
+  border: 5px dashed #0c0f0a;
+  border-radius: 35px;
+  padding: 3vh 3vw;
+  width: max-content;
+  max-width: 80%;
+}
+
+.post-card-title {
+  font-size: x-large;
+  border-bottom: 2px solid #b9e28c;
+  letter-spacing: 2px;
+  color: #c9e6f8;
+  text-shadow: 3px 3px 3px #072ac8;
 }
 
 .post-card-tag {
@@ -375,7 +412,7 @@ flex-wrap: wrap;
   animation-duration: 1s;
 }
 
-.loading-page{
+.loading-page {
   display: flex;
   width: 100%;
   height: 100%;
@@ -385,7 +422,7 @@ flex-wrap: wrap;
   border-radius: 35px;
 }
 
-#hold-loading{
+#hold-loading {
   max-width: fit-content;
   margin: auto;
   text-align: center;
@@ -395,14 +432,16 @@ flex-wrap: wrap;
   text-shadow: 4px 4px 4px #6bbaec;
 }
 
-#hold-loading h1{
+#hold-loading h1 {
   animation: bounce;
   animation-duration: 0.7s;
   animation-iteration-count: 5;
 }
 
-#hold-loading img{
+#hold-loading img {
   border-radius: 35px;
+  width: 80%;
+  height: 80%;
 }
 
 /* media queries */
@@ -424,5 +463,30 @@ flex-wrap: wrap;
   .singleDetails,
   .post-card-div a {
     width: max-content;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #searchbar {
+    display: flex;
+    flex-direction: column;
+  }
+  #searchbar label {
+    text-align: center;
+  }
+
+  .editForm {
+    margin: auto 3vw;
+  }
+
+  .editForm textarea {
+    width: 80%;
+  }
+
+  #register-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }

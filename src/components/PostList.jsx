@@ -3,7 +3,6 @@ import { PostCard, Loading } from "./";
 import { getPostsAPI, getAllTagsAPI } from "../api-adapter";
 import { useOutletContext } from "react-router-dom";
 
-
 const PostList = ({ token }) => {
   const [, , , , posts, setPosts] = useOutletContext();
 
@@ -34,7 +33,7 @@ const PostList = ({ token }) => {
           e.preventDefault();
         }}
       >
-        <label>Search for Tags</label>
+        <label>Search for Tags :</label>
         <input
           type="text"
           onInput={(e) => {
@@ -42,7 +41,7 @@ const PostList = ({ token }) => {
           }}
           id="searchBar"
         ></input>
-        <button type="submit">search</button>
+
         <button
           onClick={() => {
             setSearchTerm("");
@@ -82,7 +81,7 @@ const PostList = ({ token }) => {
             })
           )
         ) : (
-          <Loading/>
+          <Loading />
         )}
       </div>
     </div>

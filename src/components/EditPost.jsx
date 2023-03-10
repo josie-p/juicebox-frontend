@@ -30,7 +30,7 @@ const EditPost = () => {
 
   const editPost = async (token, id, title, content, tags) => {
     const response = await editPostAPI(token, id, title, content, tags);
-    if (response.name.includes("Unauthorized")) {
+    if (response.name?.includes("Unauthorized")) {
       alert("You cant update a post that isnt yours");
       navigate("/");
     } else {
@@ -103,7 +103,7 @@ const EditPost = () => {
       </Link>
     </div>
   ) : (
-    <Loading/>
+    <Loading />
   );
 };
 

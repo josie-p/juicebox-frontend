@@ -444,6 +444,39 @@ flex-wrap: wrap;
   height: 80%;
 }
 
+.holdWarning{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.warning{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #b9e28c;
+  color: #072ac8;
+  padding: 3vw 3vh;
+  border-radius: 35px;
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInDown;
+  animation-duration: 2s;
+}
+
+.warning h3{
+  text-align: center;
+  font-family: "Climate Crisis", sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 5px 5px 5px #6bbaec;
+}
+
 /* media queries */
 @media screen and (min-width: 1025px) {
   #homeHold {

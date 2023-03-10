@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { logInAPI } from "../api-adapter";
 import { Link } from "react-router-dom";
+import { ErrorMessage } from "./";
 
 const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
-  // console.log(token, setToken, 'props from login')
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const logInUser = async (userName, password) => {
     const response = await logInAPI(userName, password);
 
@@ -14,13 +15,16 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
       setToken(response.token);
       setLoggedIn(true);
     }else{
-      alert("You have entered the wrong username and/or password")
+      setMessage("You have entered the wrong username and/or password- try again!");
+      document.getElementsByClassName("warning")[0].style.display = "flex"
+      document.getElementsByClassName("warning")[0].style.flexDirection = "column"
     }
   };
 
-  console.log(token, "token from function");
+
   return (
     <div>
+   <ErrorMessage message={message}/>
       <h2 className="register-account-h2">Log In to Your Account</h2>
       <form
         id="log-in-form"

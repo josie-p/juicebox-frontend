@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useOutletContext, useNavigate, Link } from "react-router-dom";
 import { createPostAPI } from "../api-adapter";
+import { ErrorMessage } from "./";
 
 const NewPost = () => {
   const [, , token, setToken, posts, setPosts] = useOutletContext();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
   const createPost = async (token, title, content, tags) => {
-    const response = await createPostAPI(token, title, content, tags);
-
-    if (response.post.id) {
+    if (content && title) {
+      const response = await createPostAPI(token, title, content, tags);
       const newPost = [...posts];
 
       newPost.unshift(response.post);
       setPosts(newPost);
+        navigate("/");
+    }else{
+      setMessage("Hmmm... Something went wrong- check to make sure all fields are filled out");
+      document.getElementsByClassName("warning")[0].style.display = "flex"
+      document.getElementsByClassName("warning")[0].style.flexDirection = "column";
     }
   };
 
@@ -26,6 +32,7 @@ const NewPost = () => {
 
   return (
     <div>
+      <ErrorMessage message={message}/>
       <h1 className="register-account-h2">Making a New Post</h1>
       <form
         className="editForm"
@@ -33,7 +40,6 @@ const NewPost = () => {
           e.preventDefault();
 
           createPost(token, title, content, tags);
-          navigate("/");
         }}
       >
         <label>Title</label>

@@ -6,6 +6,7 @@ import {
   Link,
 } from "react-router-dom";
 import { editPostAPI } from "../api-adapter";
+import ErrorMessage from "./ErrorMessage";
 import Loading from "./Loading";
 
 const EditPost = () => {
@@ -14,6 +15,7 @@ const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
+  const [message, setMessage] = useState("");
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -31,8 +33,13 @@ const EditPost = () => {
   const editPost = async (token, id, title, content, tags) => {
     const response = await editPostAPI(token, id, title, content, tags);
     if (response.name?.includes("Unauthorized")) {
-      alert("You cant update a post that isnt yours");
-      navigate("/");
+      setMessage("You may not edit a post which does not belong to you");
+      document.getElementsByClassName("warning")[0].style.display = "flex"
+      document.getElementsByClassName("warning")[0].style.flexDirection = "column"
+      setTimeout( () => {
+        navigate("/");
+      }, 3500);
+      
     } else {
       let newPostArray = [...posts];
       newPostArray = newPostArray.filter((post, idx) => {
@@ -59,6 +66,7 @@ const EditPost = () => {
 
   return currentPost ? (
     <div id="edit-post-div">
+      <ErrorMessage message={message}/>
       <h1 id="edit-page-h1">
         <span id="you-are-editing">You are Editing:</span> "{currentPost.title}"
       </h1>

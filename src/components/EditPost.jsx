@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { useOutletContext, useParams, useNavigate } from "react-router-dom";
+import {
+  useOutletContext,
+  useParams,
+  useNavigate,
+  Link,
+} from "react-router-dom";
 import { editPostAPI } from "../api-adapter";
 
 const EditPost = () => {
@@ -24,19 +29,24 @@ const EditPost = () => {
 
   const editPost = async (token, id, title, content, tags) => {
     const response = await editPostAPI(token, id, title, content, tags);
-    console.log(response);
-    let newPostArray = [...posts];
-    newPostArray = newPostArray.filter((post, idx) => {
-      if (post.id === Number(id)) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    newPostArray.unshift(response.post);
-    setPosts(newPostArray);
-    alert("Post has been succesfully edited");
-    navigate("/");
+    if (response.name.includes("Unauthorized")) {
+      alert("You cant update a post that isnt yours");
+      navigate("/");
+    } else {
+      console.log(response);
+      let newPostArray = [...posts];
+      newPostArray = newPostArray.filter((post, idx) => {
+        if (post.id === Number(id)) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+      newPostArray.unshift(response.post);
+      setPosts(newPostArray);
+      alert("Post has been succesfully edited");
+      navigate("/");
+    }
   };
 
   let startingTags = "";
@@ -49,8 +59,11 @@ const EditPost = () => {
 
   return currentPost ? (
     <div>
-      <h1>Editing {currentPost.title}</h1>
-      <form id="editForm"
+      <h1 id="edit-page-h1">
+        <span id="you-are-editing">You are Editing:</span> "{currentPost.title}"
+      </h1>
+      <form
+        className="editForm"
         onSubmit={(e) => {
           e.preventDefault();
           editPost(token, id, title, content, tags);
@@ -84,6 +97,9 @@ const EditPost = () => {
         ></input>
         <button type="submit">Submit Changes</button>
       </form>
+      <Link to="/">
+        <button className="goHome">Go Home</button>
+      </Link>
     </div>
   ) : (
     <h1>Loading</h1>

@@ -6,6 +6,10 @@ body {
   background-color: #efa48b;
 }
 
+a {
+  text-decoration: none;
+}
+
 #navbar {
   background-color: #0c0f0a;
   color: white;
@@ -60,6 +64,7 @@ body {
   padding: 1.5vh 1.5vw;
   font-size: larger;
   font-family: "Tilt Neon", cursive;
+  border-color: #072ac8;
 }
 
 #searchbar label {
@@ -104,6 +109,7 @@ button {
   background-color: #6bbaec;
   transition: ease-in;
   transition-duration: 0.3s;
+  color: #072ac8;
 }
 
 .post-card-div:hover {
@@ -113,7 +119,23 @@ button {
   transition-duration: 0.3s;
 }
 
-.single-post{
+.post-card-tag {
+  background-color: #b9e28c;
+  max-width: max-content;
+  border-radius: 35px;
+  padding: 1vh;
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
+
+.post-card-tag:hover {
+  background-color: #c9e6f8;
+  transition: ease-in;
+  transition-duration: 0.2s;
+  box-shadow: 4px 4px #072ac8;
+}
+
+.single-post {
   margin: auto;
   width: 30vw;
   display: flex;
@@ -126,20 +148,20 @@ button {
   background-color: #c9e6f8;
 }
 
-#title{
+#title {
   color: #072ac8;
   letter-spacing: 3px;
-  font-family: 'Climate Crisis', sans-serif;
+  font-family: "Climate Crisis", sans-serif;
   text-shadow: 3px 3px 3px #b9e28c;
 }
 
-#content{
+#content {
   background-color: #6bbaec;
   padding: 2vw;
   border-radius: 35px;
 }
 
-#user{
+#user {
   letter-spacing: 3px;
   color: #072ac8;
   border-bottom: 3.5px solid #efa48b;
@@ -151,43 +173,44 @@ flex-direction: row;
 flex-wrap: wrap;
 } */
 
-.tags{
-background-color: #6bbaec;
-border-radius: 35px;
-width: max-content;
-padding: 0.5vw;
-transition: ease-in;
-transition-duration: 0.3s;
+.tags {
+  background-color: #6bbaec;
+  border-radius: 35px;
+  width: max-content;
+  padding: 0.5vw;
+  transition: ease-in;
+  transition-duration: 0.3s;
 }
 
-.tags:hover{
+.tags:hover {
   background-color: #b9e28c;
   transition: ease-in;
-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
-#goHome{
+.goHome {
   margin: 3vh;
   background-color: #072ac8;
-  color: #c9e6f8 ;
+  color: #c9e6f8;
   text-decoration: none;
   padding: 1vw;
   border-radius: 35px;
   transition: ease-in;
-transition-duration: 0.3s;
-border: 5px dashed #b9e28c;
+  transition-duration: 0.3s;
+  border: 5px dashed #b9e28c;
 }
 
-#goHome:hover{
+.goHome:hover {
   background-color: #c9e6f8;
   color: #072ac8;
   transition: ease-in;
-transition-duration: 0.3s;
-border: 5px dashed #6bbaec;
+  transition-duration: 0.3s;
+  border: 5px dashed #6bbaec;
 }
 
-.singleDetails, .post-card-div a{
-  font-family: 'Tilt Neon', sans-serif;
+.singleDetails,
+.post-card-div a {
+  font-family: "Tilt Neon", sans-serif;
   background-color: #c9e6f8;
   color: #072ac8;
   text-decoration: none;
@@ -197,8 +220,8 @@ border: 5px dashed #6bbaec;
   margin: 0.5vw;
 }
 
-.deleteButton{
-  font-family: 'Tilt Neon', sans-serif;
+.deleteButton {
+  font-family: "Tilt Neon", sans-serif;
   background-color: #c9e6f8;
   color: #072ac8;
   text-decoration: none;
@@ -209,7 +232,7 @@ border: 5px dashed #6bbaec;
   font-size: 12pt;
 }
 
-#editForm{
+.editForm {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -219,31 +242,144 @@ border: 5px dashed #6bbaec;
   max-width: max-content;
   padding: 4vw;
   border-radius: 35px;
+  border: 5px dashed #0c0f0a;
 }
 
-#editForm button{
+.editForm button {
   background-color: #b9e28c;
   border: none;
+  padding: 1vh 1vw;
+  font-family: "Tilt Neon", sans-serif;
+  font-weight: bold;
+  transition: ease-in;
+  transition-duration: 0.3s;
 }
 
+.editForm button:hover {
+  background-color: #6bbaec;
+  color: #072ac8;
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
 
-/* media queries */
-@media screen and (min-width: 1025px){
+.editForm input,
+.editForm textarea {
+  font-family: "Tilt Neon", sans-serif;
+  border-radius: 35px;
+  padding: 2vh 2vw;
+  margin-bottom: 1vh;
+}
 
-#homeHold{
+.editForm input {
+  border: none;
+  background-color: #b9e28c;
+}
+
+.editForm label {
+  margin-bottom: 1vh;
+  font-size: large;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #072ac8;
+}
+
+#edit-page-h1 {
+  font-family: "Climate Crisis", cursive;
+  letter-spacing: 2px;
+  color: #072ac8;
+  text-shadow: 5px 5px 5px #b9e28c;
+}
+
+#you-are-editing {
+  color: #b9e28c;
+  text-shadow: 5px 5px 3px #072ac8;
+}
+
+#log-in-form {
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   justify-content: center;
-  margin: auto auto;
-  max-width: 50%;
+  background-color: #c9e6f8;
+  max-width: max-content;
+  padding: 4vw;
+  border-radius: 35px;
+  border: 5px dashed #0c0f0a;
 }
 
-  .post-card-div{
+#log-in-form button {
+  background-color: #b9e28c;
+  border: none;
+  padding: 1vh 1vw;
+  font-family: "Tilt Neon", sans-serif;
+  font-weight: bold;
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
+
+#log-in-form button:hover {
+  background-color: #6bbaec;
+  color: #072ac8;
+  transition: ease-in;
+  transition-duration: 0.3s;
+}
+
+#log-in-form input {
+  font-family: "Tilt Neon", sans-serif;
+  border-radius: 35px;
+  padding: 2vh 2vw;
+  margin-bottom: 1vh;
+  border: none;
+  background-color: #b9e28c;
+  color: #072ac8;
+  font-size: large;
+}
+
+#log-in-form label {
+  margin-bottom: 1vh;
+  font-size: large;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #072ac8;
+}
+
+#link-register {
+  color: #072ac8;
+}
+
+#link-register {
+  color: #072ac8;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.register-account-h2 {
+  font-family: "Climate Crisis", cursive;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #072ac8;
+  text-shadow: 5px 5px 5px #6bbaec;
+}
+/* media queries */
+@media screen and (min-width: 1025px) {
+  #homeHold {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: auto auto;
+    max-width: 50%;
+  }
+
+  .post-card-div {
     width: 550px;
   }
 
-  .deleteButton, .singleDetails, .post-card-div a{
+  .deleteButton,
+  .singleDetails,
+  .post-card-div a {
     width: max-content;
   }
 }

@@ -21,7 +21,9 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
   console.log(token, "token from function");
   return (
     <div>
+      <h2 className="register-account-h2">Log In to Your Account</h2>
       <form
+        id="log-in-form"
         onSubmit={(e) => {
           e.preventDefault();
           logInUser(userName, password);
@@ -44,7 +46,7 @@ const LogIn = ({ setToken, token, loggedIn, setLoggedIn }) => {
         <button type="submit">Log In</button>
       </form>
       <Link to="/register">
-        <p>
+        <p id="link-register">
           If you need an account register here, no email required! Or Login in
           to our test account username: albert pw: bertie99{" "}
         </p>

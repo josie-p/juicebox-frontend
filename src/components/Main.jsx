@@ -17,9 +17,8 @@ const Main = () => {
   }
 
   const getPosts = async (token) => {
-    console.log(token, "token from main");
     const fetchedPosts = await getPostsAPI(token);
-    console.log(await fetchedPosts, "fetchedPosts");
+
     setPosts(await fetchedPosts.posts[0]);
   };
 

@@ -483,10 +483,16 @@ flex-wrap: wrap;
     width: 80%;
   }
 
-  #register-div {
+  #register-div,
+  #edit-post-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .single-post {
+    width: 80vw;
+    margin-bottom: 2vh;
   }
 }

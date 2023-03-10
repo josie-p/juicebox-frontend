@@ -34,7 +34,6 @@ const EditPost = () => {
       alert("You cant update a post that isnt yours");
       navigate("/");
     } else {
-      console.log(response);
       let newPostArray = [...posts];
       newPostArray = newPostArray.filter((post, idx) => {
         if (post.id === Number(id)) {
@@ -59,7 +58,7 @@ const EditPost = () => {
   }
 
   return currentPost ? (
-    <div>
+    <div id="edit-post-div">
       <h1 id="edit-page-h1">
         <span id="you-are-editing">You are Editing:</span> "{currentPost.title}"
       </h1>

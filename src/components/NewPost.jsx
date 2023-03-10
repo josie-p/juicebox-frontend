@@ -14,12 +14,10 @@ const NewPost = () => {
 
     if (response.post.id) {
       const newPost = [...posts];
-      console.log("inside if of new post");
+
       newPost.unshift(response.post);
       setPosts(newPost);
     }
-
-    console.log(response, "response from new post");
   };
 
   useEffect(() => {
@@ -33,7 +31,7 @@ const NewPost = () => {
         className="editForm"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(token, "token from new post");
+
           createPost(token, title, content, tags);
           navigate("/");
         }}

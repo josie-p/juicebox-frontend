@@ -4,7 +4,7 @@ import { LogIn, PostList } from "./index";
 
 const HomePage = () => {
   const [loggedIn, setLoggedIn, token, setToken] = useOutletContext();
-  console.log(token, "token");
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setLoggedIn(true);
